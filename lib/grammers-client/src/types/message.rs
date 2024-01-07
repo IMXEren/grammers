@@ -608,3 +608,10 @@ impl fmt::Debug for Message {
             .finish()
     }
 }
+
+#[cfg(feature = "unstable_raw")]
+impl From<Message> for tl::types::Message {
+    fn from(x: Message) -> Self {
+        x.msg
+    }
+}
